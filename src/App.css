@@ -1,38 +1,130 @@
-.App {
-  text-align: center;
+/* jobcard css */
+
+@import url(https://fonts.googleapis.com/css?family=Hind);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	color: #31383d;
+	font-size: 1.1rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+section {
+	/* padding: 10px 0; */
+	background: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.site-heading {
+	/* margin: auto; */
+	text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.masthead {
+	margin-bottom: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+p {
+	line-height: 1.5;
+	font-size: small;
+	/* margin: 30px 0; */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h3 {
+	font-family: 'Hind', sans-serif;
+  font-weight: 800;
+	margin: 0;
+	color:  #393a5f;
+}
+
+h1 {
+	font-family: 'Hind', sans-serif;
+  font-weight: 800;
+	margin: 0;
+	color:  #393a5f;
+}
+
+h2,
+h4,
+h5,
+h6 {
+  font-family: 'Hind', sans-serif;
+  font-weight: 800;
+  margin: 0;
+}
+
+a {
+	color:  #393a5f;
+	text-decoration: none;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+a:hover,
+a:focus {
+	color: #73a5fc;
+}
+
+ul.job-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+ul.job-list > li.job-preview {
+	background: #fff;
+	border: 1px solid #d7e2e9;
+	-webkit-border-radius: 0.4rem;
+	-moz-border-radius: 0.4rem;
+	border-radius: 0.4rem;
+	padding: 1rem 2rem;
+  margin: auto;
+  margin-bottom: 1rem;
+  position: relative;
+	/* float: left; */
+	width: 80%;
+	-webkit-transition: all 0.3s ease 0s;
+	-moz-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
+}
+
+ul.job-list > li.job-preview:hover {
+	/* cursor: pointer; */
+	-webkit-box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+	-moz-box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+	box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+}
+
+.job-title {
+	width: 80%;
+}
+
+.company {
+  color: #6c7b8a;
+}
+
+.location {
+	color: #96a4b1;
+}
+
+.btn-apply {
+	margin-right: .5rem;
+	text-transform: uppercase;
+	font-size: 0.875rem;
+	font-weight: 800;
+	letter-spacing: 2px;
+	background-color: transparent;
+	color:  #393a5f;
+	border: 2px solid #393a5f;
+	padding: 0.6rem 2rem;
+	-webkit-border-radius: 2rem;
+	-moz-border-radius: 2rem;
+	border-radius: .5rem;
+}
+
+.btn-apply:hover {
+	cursor: pointer;
+	background-color: #393a5f;
+	color:  #fff;
+	border: 2px solid #393a5f;
 }
