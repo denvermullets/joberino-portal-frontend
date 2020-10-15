@@ -9,23 +9,30 @@ const JobCard = (props) => {
         <ul className="job-list">
           <li className="job-preview">
             <h2 className="job-title">
-             <a href={job_url}>{ job_title ? job_title : null }</a>
+             <a href={job_url} target="_blank" >{ job_title ? job_title : null }</a>
             </h2>
             <h3 className="job-title">
              { salary_info ? salary_info : null }
             </h3>
             <h3 className="company">
-              {/* { company_name ? `${company_name} - ${location}` : null } */}
-              <a href={ company_page ? company_page : null } className="company" >{ location ? `${company_name} - ${location}` : company_name }</a>
+              {
+                company_page ? 
+                  <a href={ company_page ? `${company_page}people` : null } target="_blank" className="company" >
+                    { location ? `${company_name} - ${location}` : company_name }</a>
+                : location ? `${company_name} - ${location}` : company_name 
+              }
+              
             </h3>
             
             <h5 className="location">
               { connection ? connection : null }
             </h5>
             <p>{ job_description ? job_description : null }</p>
-            <button className="btn-apply">
-              View
-            </button>
+            <a href={job_url} target="_blank" >
+              <button className="btn-apply">
+                View
+              </button>
+            </a>
             <button className="btn-apply">
               Save
             </button>
