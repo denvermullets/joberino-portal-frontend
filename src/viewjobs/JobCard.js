@@ -9,14 +9,14 @@ const JobCard = (props) => {
         <ul className="job-list">
           <li className="job-preview">
             <h2 className="job-title">
-             <a href="">{ job_title ? job_title : null }</a>
+             <a href={job_url}>{ job_title ? job_title : null }</a>
             </h2>
             <h3 className="job-title">
              { salary_info ? salary_info : null }
             </h3>
             <h3 className="company">
               {/* { company_name ? `${company_name} - ${location}` : null } */}
-              { location ? `${company_name} - ${location}` : company_name }
+              <a href={ company_page ? company_page : null } className="company" >{ location ? `${company_name} - ${location}` : company_name }</a>
             </h3>
             
             <h5 className="location">
