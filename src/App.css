@@ -75,7 +75,8 @@ ul.job-list {
 	list-style: none;
 }
 
-ul.job-list > li.job-preview {
+/* ul.job-list >  */
+li.job-preview {
 	background: #fff;
 	border: 1px solid #d7e2e9;
 	-webkit-border-radius: 0.4rem;
@@ -92,12 +93,22 @@ ul.job-list > li.job-preview {
 	transition: all 0.3s ease 0s;
 }
 
-ul.job-list > li.job-preview:hover {
+li.job-preview:hover {
 	/* cursor: pointer; */
 	-webkit-box-shadow: 0 3px 8px rgba(0,0,0,0.05);
 	-moz-box-shadow: 0 3px 8px rgba(0,0,0,0.05);
 	box-shadow: 0 3px 8px rgba(0,0,0,0.05);
 }
+
+li.saved {
+	border: 1px solid #393a5f;
+}
+
+li.applied {
+	opacity: 0.5;
+  background: rgb(226, 226, 226);
+}
+
 
 .job-title {
 	width: 80%;
