@@ -110,7 +110,7 @@ const ViewJobs = () => {
             Open Positions
           </h1>
           <span className="subheading">
-            Current listings for full stack developer jobs. NO senior / sr / lead listings.
+            Current listings for full stack developer and software engineering jobs in the past 24hrs. <br /> NO senior / sr / lead listings.
           </span> <br />
           <button className='btn-refresh' onClick={() => refreshLinked()} >Refresh Linkedin</button>
           <button className='btn-refresh' onClick={() => refreshIndeed()} >Refresh Indeed</button>
