@@ -4,7 +4,6 @@ import BarLoader from "react-spinners/BarLoader";
 import JobCard from './JobCard';
 
 const ViewJobs = () => {
-
   // Can be a string as well. Need to ensure each key-value pair ends with ;
   const override = css`
   margin: 1rem auto;
@@ -23,40 +22,29 @@ const ViewJobs = () => {
       .then(response => response.json())
   }
 
-  const saveJob = (id, index) => {
+  const saveJob = (id, reminder) => {
     setLoading(!loading)
     fetch(`http://localhost:3000/openings/${id}`, {
       method: 'PATCH',
-      body: JSON.stringify({"remind_me": !jobs[index].remind_me}),
+      body: JSON.stringify({"remind_me": reminder}),
       headers: {"Content-type": "application/json; charset=UTF-8"}
     })
       .then(response => response.json())
-    let savedJobs = [...jobs]
-    savedJobs[index] = {
-      ...savedJobs[index], remind_me: !savedJobs[index].remind_me
-    }
 
+    let savedJobs = jobs.map(job => job.id === id ? {...job, remind_me: !job.remind_me} : job )
     setJobs(savedJobs)
-    console.log('job marked as saved')
-
   }
 
-  const appliedForJob = (id, index) => {
+  const appliedForJob = (id, appliedFor) => {
     setLoading(!loading)
     fetch(`http://localhost:3000/openings/${id}`, {
       method: 'PATCH',
-      body: JSON.stringify({"applied": !jobs[index].applied}),
+      body: JSON.stringify({"applied": appliedFor}),
       headers: {"Content-type": "application/json; charset=UTF-8"}
     })
       .then(res => res.json())
-
-    let appliedJobs = [...jobs]
-    appliedJobs[index] = {
-      ...appliedJobs[index], applied: !appliedJobs[index].applied
-    }
-
+    let appliedJobs = jobs.map(job => job.id === id ? {...job, applied: !job.applied} : job )
     setJobs(appliedJobs)
-    console.log('marked as applied')
   }
 
   const removeJob = (id) => {
@@ -83,7 +71,6 @@ const ViewJobs = () => {
       .catch(err => {
         setLoading(!loading)
         alert("you'll need to refresh the page and try again, indeed has a lot of popups that mess with the scrape method sometimes.")})
-
   }
   
   useEffect(() => {
@@ -96,12 +83,15 @@ const ViewJobs = () => {
     setLoading(!loading)
   }, [jobs]);
 
-  // // TODO: we are automatically filtering out senior roles, eventually will make this an option
-  let filteredJobs = jobs.filter(single_job => 
-    !single_job.job_title.toLowerCase().includes('senior') && !single_job.job_title.toLowerCase().includes('sr') && !single_job.job_title.toLowerCase().includes('lead')
+  // TODO: we are automatically filtering out senior roles, eventually will make this an option
+  const filteredJobs = jobs.filter(single_job => 
+    !single_job.job_title.toLowerCase().includes('senior') && !single_job.job_title.toLowerCase().includes('sr') && !single_job.job_title.toLowerCase().includes('lead') &&
+      !single_job.job_title.toLowerCase().includes('manager') && !single_job.job_title.toLowerCase().includes('director') && !single_job.job_title.toLowerCase().includes('VP') &&
+      !single_job.job_title.toLowerCase().includes('vice president') && !single_job.job_title.toLowerCase().includes('principal') && !single_job.job_title.toLowerCase().includes('architect')
     )
-
-
+  
+  // TODO: disable buttons when actively searching for new jobs
+  // TODO: display which source job listing came from
   return (
     <>
       <header className="masthead">
@@ -110,11 +100,14 @@ const ViewJobs = () => {
             Open Positions
           </h1>
           <span className="subheading">
-            Current listings for full stack developer and software engineering jobs in the past 24hrs. <br /> NO senior / sr / lead listings.
+            Current listings for full stack developer and software engineering jobs in the past 24hrs. <br /> NO senior / sr / lead / VP / Director / Principal listings.
           </span> <br />
           <button className='btn-refresh' onClick={() => refreshLinked()} >Refresh Linkedin</button>
           <button className='btn-refresh' onClick={() => refreshIndeed()} >Refresh Indeed</button>
-          <br /> {filteredJobs.length} jobs being displayed.
+          {/* <br /> */}
+          {/* <button className='btn-refresh' onClick={() => refreshLinked()} >View Saved</button>
+          <button className='btn-refresh' onClick={() => refreshIndeed()} >View Applied</button> */}
+          <br /> {filteredJobs.length} jobs being displayed. 
         </div>
       </header>
       
