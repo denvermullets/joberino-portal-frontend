@@ -34,10 +34,10 @@ const JobCard = (props) => {
                 View
               </button>
             </a>
-            <button className="btn-apply" onClick={() => props.saveJob(id, props.index)}>
+            <button className="btn-apply" onClick={() => props.saveJob(id, !remind_me)}>
               Save
             </button>
-            <button className="btn-apply" onClick={() => props.appliedForJob(id, props.index)}>
+            <button className="btn-apply" onClick={() => props.appliedForJob(id, !applied)}>
               Applied
             </button>
             <button className="btn-apply" onClick={() => props.removeJob(id)}>
