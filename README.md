@@ -1,5 +1,7 @@
 ## Joberino
 
+![dk](https://i.imgur.com/hMfFHoj.gif)
+
 ### What it do
 
 Joberino pulls listings in the last 24hrs and adds them to a Postgresql database and avoids duplicates based on company and job title. So no 2 'IBM - Software Engineer' roles. The idea is that it makes it easier to keep track of the 'new' job postings without having to see all the senior jobs and stuff you have viewed already.
@@ -28,6 +30,3 @@ npm start
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
-
-![dk](https://i.imgur.com/hMfFHoj.gif)
-
