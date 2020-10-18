@@ -60,6 +60,13 @@ const ViewJobs = () => {
       .then(response => response.json())
       .then(joberinos => setJobs(joberinos))
   }
+  
+  const refreshNyc = () => {
+    setLoading(!loading)
+    fetch('http://localhost:3000/nycstartup')
+      .then(response => response.json())
+      .then(joberinos => setJobs(joberinos))
+  }
 
   const refreshIndeed = () => {
     setLoading(!loading)
@@ -103,6 +110,7 @@ const ViewJobs = () => {
             Current listings for full stack developer and software engineering jobs in the past 24hrs. <br /> NO senior / sr / lead / VP / Director / Principal listings.
           </span> <br />
           <button className='btn-refresh' onClick={() => refreshLinked()} >Refresh Linkedin</button>
+          <button className='btn-refresh' onClick={() => refreshNyc()} >Refresh Built in NYC</button>
           <button className='btn-refresh' onClick={() => refreshIndeed()} >Refresh Indeed</button>
           {/* <br /> */}
           {/* <button className='btn-refresh' onClick={() => refreshLinked()} >View Saved</button>
