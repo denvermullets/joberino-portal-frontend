@@ -93,12 +93,15 @@ const ViewJobs = () => {
   // TODO: we are automatically filtering out senior roles, eventually will make this an option
   const filteredJobs = jobs.filter(single_job => 
     !single_job.job_title.toLowerCase().includes('senior') && !single_job.job_title.toLowerCase().includes('sr') && !single_job.job_title.toLowerCase().includes('lead') &&
-      !single_job.job_title.toLowerCase().includes('manager') && !single_job.job_title.toLowerCase().includes('director') && !single_job.job_title.toLowerCase().includes('VP') &&
+      !single_job.job_title.toLowerCase().includes('manager') && !single_job.job_title.toLowerCase().includes('director') && !single_job.job_title.toLowerCase().includes('vp') &&
       !single_job.job_title.toLowerCase().includes('vice president') && !single_job.job_title.toLowerCase().includes('principal') && !single_job.job_title.toLowerCase().includes('architect')
     )
   
   // TODO: disable buttons when actively searching for new jobs
+  // TODO: display new icon on newly displayed listings
+  // TODO: add buttons to hide / show saved or applied listings
   // TODO: display which source job listing came from
+
   return (
     <>
       <header className="masthead">
