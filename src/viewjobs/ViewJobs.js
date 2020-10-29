@@ -12,6 +12,12 @@ const ViewJobs = () => {
 
   const [ jobs, setJobs ] = useState([])
   const [ loading, setLoading ] = useState(false)
+  // const [ viewSaved, setViewSaved ] = useState(false)
+  // const [ viewApplied, setViewApplied ] = useState(false)
+
+  const filterTerms = {
+    
+  }
 
   const ignoreJob = (id) => {
     fetch(`http://localhost:3000/openings/${id}`, {
@@ -95,6 +101,7 @@ const ViewJobs = () => {
     !single_job.job_title.toLowerCase().includes('senior') && !single_job.job_title.toLowerCase().includes('sr') && !single_job.job_title.toLowerCase().includes('lead') &&
       !single_job.job_title.toLowerCase().includes('manager') && !single_job.job_title.toLowerCase().includes('director') && !single_job.job_title.toLowerCase().includes('vp') &&
       !single_job.job_title.toLowerCase().includes('vice president') && !single_job.job_title.toLowerCase().includes('principal') && !single_job.job_title.toLowerCase().includes('architect')
+      //  || single_job.applied == viewApplied || single_job.remind_me == viewSaved
     )
   
   // TODO: disable buttons when actively searching for new jobs
